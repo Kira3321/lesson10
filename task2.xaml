@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lesson10.task_2"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             Title="task_2">
+    
+    <ContentPage.Resources>
+        <LayoutOptions x:Key="horzOptions"
+                       Alignment="Center" />
+        <LayoutOptions x:Key="vertOptions"
+                       Alignment="Center" />
+        <x:Double x:Key="fontSize">30</x:Double>
+        <OnPlatform x:Key="textColor"
+            x:TypeArguments="Color">
+            <On Platform="WinUI"  Value="Red" /> 
+            <On Platform="Android" Value="Aqua" />
+        </OnPlatform>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="LB"
+               Text="Some text"
+               FontSize="{StaticResource fontSize}"
+               TextColor="{StaticResource textColor}"
+               FontFamily="OpenSansSemibold"
+               Padding="10"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"/>
+
+        <ScrollView
+            Padding="10"
+            Grid.Column="0"
+            Grid.Row="1">
+            <Editor x:Name="EntryText"
+                    FontSize="22"
+                    BackgroundColor="LightGray"/> 
+        </ScrollView>
+
+        <Button Text="Send"
+                FontSize="{StaticResource fontSize}"
+                BackgroundColor="White"
+                TextColor="{StaticResource textColor}"
+                BorderColor="Black"
+                BorderWidth="{x:Static sys:Math.PI}"
+                CornerRadius="20"
+                Grid.Column="1"
+                Grid.Row="1"
+                Clicked="Button_Clicked"/>
+    </Grid>
+</ContentPage>
