@@ -12,7 +12,6 @@ public partial class task_2 : ContentPage
         LB.Text = ReverseStringArrayToString(EntryText.Text.Split());
         EntryText.Text = "";
     }
-
     private string ReverseStringArrayToString(string[] arg)
     {
         var result = new string[arg.Length];
